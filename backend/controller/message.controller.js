@@ -3,10 +3,11 @@ import Message from '../models/message.model.js'
 
 export const sendMessage = async (req, res) => {
     try {
+        
         const {message} = req.body
         const {id:recieverId} = req.params
         const senderId = req.user._id
-
+        console.log("Messages",message)
         console.log("senderID",senderId)
 
         let conversation = await Conversation.findOne({
